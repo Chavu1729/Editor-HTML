@@ -205,12 +205,12 @@ public class PrimaryController implements Initializable {
             Parent root2 = fxmlLoader2.load();
 
             scene = new Scene(root2, 360, 250);
-            stage = new Stage();
-            stage.setTitle("Acerca de...");
-            stage.setScene(scene);
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setResizable(false);
-            stage.showAndWait();
+            Stage stageAbout = new Stage();
+            stageAbout.setTitle("Acerca de...");
+            stageAbout.setScene(scene);
+            stageAbout.initModality(Modality.APPLICATION_MODAL);
+            stageAbout.setResizable(false);
+            stageAbout.showAndWait();
         } catch (IOException e) {
             e.printStackTrace();
         }
