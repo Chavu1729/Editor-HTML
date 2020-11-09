@@ -17,25 +17,24 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.web.HTMLEditor?>
 
-
-<GridPane prefHeight="712.0" prefWidth="1015.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.html_wysiwyg.PrimaryController">
+<GridPane minHeight="700.0" minWidth="900.0" prefHeight="829.0" prefWidth="1015.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.html_wysiwyg.PrimaryController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
    </columnConstraints>
    <rowConstraints>
       <RowConstraints maxHeight="349.0" minHeight="10.0" prefHeight="26.0" />
-      <RowConstraints maxHeight="686.0" minHeight="10.0" prefHeight="686.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="1000.0" minHeight="10.0" prefHeight="686.0" />
    </rowConstraints>
    <children>
-      <VBox alignment="CENTER" prefHeight="685.0" prefWidth="995.0" spacing="20.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
+      <VBox alignment="CENTER" prefHeight="843.0" prefWidth="1015.0" spacing="20.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
          <children>
-            <TabPane fx:id="TabPane" prefHeight="600.0" prefWidth="642.0" tabClosingPolicy="UNAVAILABLE">
+            <TabPane fx:id="TabPane" prefHeight="755.0" prefWidth="1015.0" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
               <tabs>
                 <Tab fx:id="editorTab" text="HTML Editor">
                   <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="25000.0" prefWidth="25000.0">
                            <children>
-                              <HTMLEditor fx:id="editorArea" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="-6.0" prefHeight="571.0" prefWidth="975.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <HTMLEditor fx:id="editorArea" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="-6.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                            </children>
                         </AnchorPane>
                   </content>
@@ -44,17 +43,14 @@
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <TextArea fx:id="codeArea" layoutX="153.0" layoutY="108.0" prefHeight="571.0" prefWidth="603.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <TextArea fx:id="codeArea" layoutX="153.0" layoutY="108.0" prefHeight="719.0" prefWidth="1015.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                            </children>
                         </AnchorPane>
                   </content>
                 </Tab>
               </tabs>
-               <VBox.margin>
-                  <Insets left="10.0" right="10.0" />
-               </VBox.margin>
             </TabPane>
-            <Button fx:id="showMobile" mnemonicParsing="false" onAction="#setMobile" text="Mobile View">
+            <Button fx:id="showMobile" mnemonicParsing="false" onAction="#setMobile" text="Mobile View" VBox.vgrow="ALWAYS">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
