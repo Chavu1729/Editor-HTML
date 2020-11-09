@@ -100,7 +100,7 @@ public class PrimaryController implements Initializable {
             HTMLdoc = Jsoup.parseBodyFragment(codeArea.getText());
             HTMLdoc.outputSettings().indentAmount(4);
         });
-            System.out.println("Cambio");
+        
         try { // Inicializamos la ventana de mobile view cuando se haga el programa para que no se abran muchas ventanas al pulsar el boton del mobile view.
             fxmlLoader.setLocation(getClass().getResource("secondary.fxml"));
             root = fxmlLoader.load();
