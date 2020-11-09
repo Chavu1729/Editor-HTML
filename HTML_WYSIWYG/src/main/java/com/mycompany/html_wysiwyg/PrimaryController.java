@@ -96,7 +96,7 @@ public class PrimaryController implements Initializable {
             HTMLdoc = Jsoup.parseBodyFragment(codeArea.getText());
             HTMLdoc.outputSettings().indentAmount(4);
         });
-
+            System.out.println("Cambio");
         try {
             fxmlLoader.setLocation(getClass().getResource("secondary.fxml"));
             root = fxmlLoader.load();
