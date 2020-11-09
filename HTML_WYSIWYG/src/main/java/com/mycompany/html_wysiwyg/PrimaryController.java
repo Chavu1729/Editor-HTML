@@ -32,12 +32,11 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
 /**
- *
- * @author Javier Torres Sevilla, Cristina Domenech Moreno
+ * 
+ * @author Javier Torres Sevilla, Cristina Domenech Moreno.
  */
 public class PrimaryController implements Initializable {
 
-//-------------------------------------------LABEL PARA HACER QUE SE VEA SI HAY UN ARCHIVO ABIERTO-------------------------------------------
     private Scene scene;
     private Stage stage;
     private Parent root;
@@ -72,6 +71,11 @@ public class PrimaryController implements Initializable {
     @FXML
     private Menu help;
 
+    /**
+     * Todo lo que esta dentro de este metodo se inicializa con la ventana.
+     * @param url
+     * @param rb
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("HTML", "*.html"));
@@ -97,7 +101,7 @@ public class PrimaryController implements Initializable {
             HTMLdoc.outputSettings().indentAmount(4);
         });
             System.out.println("Cambio");
-        try {
+        try { // Inicializamos la ventana de mobile view cuando se haga el programa para que no se abran muchas ventanas al pulsar el boton del mobile view.
             fxmlLoader.setLocation(getClass().getResource("secondary.fxml"));
             root = fxmlLoader.load();
 
@@ -115,11 +119,19 @@ public class PrimaryController implements Initializable {
         }
     }
 
+    /**
+     * Metodo que abre la ventana de la vista movil.
+     * @param event 
+     */
     @FXML
     private void setMobile(ActionEvent event) {
         stage.show();
     }
 
+    /**
+     * Metodo para abrir archivos.
+     * @param event 
+     */
     @FXML
     private void openFile(ActionEvent event) {
         fileChooser.setInitialDirectory(startDir);
@@ -134,18 +146,25 @@ public class PrimaryController implements Initializable {
         }
     }
 
+    /**
+     * Metodo para guardar archivos y sobreescribirlos.
+     * @param event 
+     */
     @FXML
     private void saveFile(ActionEvent event) {
         if (file != null) {
             Document fileToSave = Jsoup.parseBodyFragment(editorArea.getHtmlText());
             fileToSave.outputSettings().indentAmount(4);
             saveTextToFile(fileToSave.toString(), file);
-        } else {
-            saveAsFile(event);
+        } else { // Usa el mismo event que el de action event para ejecutar metodo saveAsFile si el archivo no existe. (Hace Guardar como si no hay archivo existente)
+            saveAsFile(event); 
         }
 
     }
-
+    /**
+     * Metodo para guardar archivos como nuevo archivo.
+     * @param event 
+     */
     @FXML
     private void saveAsFile(ActionEvent event) {
         fileChooser.setTitle("Guardar archivo...");
@@ -159,7 +178,11 @@ public class PrimaryController implements Initializable {
         }
     }
 
-    // Metodo para escribir a contenido
+    /**
+     * Metodo que guarda el contenido de un string a un File.
+     * @param content String que le envias para guardar en el archivo.
+     * @param file  Archivo en el cual quieres guardar el contenido.
+     */
     private void saveTextToFile(String content, File file) {
         try {
             PrintWriter writer;
@@ -170,7 +193,11 @@ public class PrimaryController implements Initializable {
             ex.printStackTrace();
         }
     }
-
+    
+    /**
+     * Metodo que meustra ventana de informacion sobre los colaboradores.
+     * @param event 
+     */
     @FXML
     private void aboutUsScreen(ActionEvent event) {
         try {
