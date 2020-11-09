@@ -45,8 +45,8 @@ public class PrimaryController implements Initializable {
     private SecondaryController secController;
     private FileChooser fileChooser = new FileChooser();
     private File file;
-    private File startDir = new File(System.getProperty("user.home"), "/Desktop");
-
+    private File startDir = new File(System.getProperty("user.home"), "/Desktop"); // Set the html document browser to initialise in the users desktop.
+    
     @FXML
     private TabPane TabPane;
     @FXML
@@ -54,9 +54,9 @@ public class PrimaryController implements Initializable {
     @FXML
     private Tab codeTab;
     @FXML
-    private TextArea codeArea;
+    private TextArea codeArea; // code area is the area that shows the HTML code raw.
     @FXML
-    private HTMLEditor editorArea;
+    private HTMLEditor editorArea; // editor area is the area of the HTML Editor.
     @FXML
     private Button showMobile;
 
@@ -72,7 +72,7 @@ public class PrimaryController implements Initializable {
     private Menu help;
 
     /**
-     * Todo lo que esta dentro de este metodo se inicializa con la ventana.
+     * Everything inside this method is initialised when the project is started.
      * @param url
      * @param rb
      */
@@ -85,7 +85,7 @@ public class PrimaryController implements Initializable {
         HTMLdoc.outputSettings().indentAmount(4);
         codeArea.setText(HTMLdoc.toString());
 
-        // Esto se ocupa de cambiar el codigo tanto en el area donde se muestra el codigo HTML basico como en el mobile view.
+        // Custom event handler that changes the code in the "code area" as well as the mobile view whenever there is ANY change in the HTML editor.
         editorArea.addEventHandler(InputEvent.ANY, (InputEvent event) -> {
             HTMLdoc = Jsoup.parseBodyFragment(editorArea.getHtmlText());
             HTMLdoc.outputSettings().indentAmount(4);
@@ -93,7 +93,7 @@ public class PrimaryController implements Initializable {
             secController.setHTML(editorArea.getHtmlText());
         });
 
-        // Esto se ocupa de cambiar el codigo tanto en el area donde se muestra el editor HTML como en el mobile view.
+        // Custom event handler that changes the code in the "code area" as well as the mobile view whenever there is ANY change in the "code area".
         codeArea.addEventHandler(InputEvent.ANY, (InputEvent event) -> {
             editorArea.setHtmlText(codeArea.getText());
             secController.setHTML(editorArea.getHtmlText());
@@ -101,7 +101,7 @@ public class PrimaryController implements Initializable {
             HTMLdoc.outputSettings().indentAmount(4);
         });
         
-        try { // Inicializamos la ventana de mobile view cuando se haga el programa para que no se abran muchas ventanas al pulsar el boton del mobile view.
+        try { // We initialise the secondary controller with the program to avoid having the button "mobile view" open multiple windows when pressed.
             fxmlLoader.setLocation(getClass().getResource("secondary.fxml"));
             root = fxmlLoader.load();
 
@@ -120,7 +120,7 @@ public class PrimaryController implements Initializable {
     }
 
     /**
-     * Metodo que abre la ventana de la vista movil.
+     * This method opens the window to the mobile view unless it's already open.
      * @param event 
      */
     @FXML
@@ -129,7 +129,7 @@ public class PrimaryController implements Initializable {
     }
 
     /**
-     * Metodo para abrir archivos.
+     * Method for opening HTML Files from the users computer.
      * @param event 
      */
     @FXML
@@ -147,7 +147,7 @@ public class PrimaryController implements Initializable {
     }
 
     /**
-     * Metodo para guardar archivos y sobreescribirlos.
+     * Method to save and ovewrite an existing file.
      * @param event 
      */
     @FXML
@@ -162,7 +162,7 @@ public class PrimaryController implements Initializable {
 
     }
     /**
-     * Metodo para guardar archivos como nuevo archivo.
+     * Method to save the currently worked on file as a new file.
      * @param event 
      */
     @FXML
@@ -179,9 +179,9 @@ public class PrimaryController implements Initializable {
     }
 
     /**
-     * Metodo que guarda el contenido de un string a un File.
-     * @param content String que le envias para guardar en el archivo.
-     * @param file  Archivo en el cual quieres guardar el contenido.
+     * Method that writes the content of a String into a File.
+     * @param content String being sent to be written into the file.
+     * @param file  File in which you want the String to be written.
      */
     private void saveTextToFile(String content, File file) {
         try {
@@ -195,7 +195,7 @@ public class PrimaryController implements Initializable {
     }
     
     /**
-     * Metodo que meustra ventana de informacion sobre los colaboradores.
+     * Method that shows the information about the creators of the program.
      * @param event 
      */
     @FXML
